@@ -142,7 +142,7 @@
             // تابع اصلی بازی
             static void PlayGame()
             {
-                Console.WriteLine("Welcome to 4x4 Tic-Tac-Toe");
+                Console.WriteLine("Welcome to 4x4 Integgigent Tic-Tac-Toe!");
                 int size = 4; // اندازه تخته ثابت 4x4 است
                 string[,] gameBoard = new string[size, size];
                 for (int i = 0; i < size; i++)
@@ -184,18 +184,15 @@
                                 Console.Write($"Enter a number (1-{size * size}): ");
                                 int number = int.Parse(Console.ReadLine());
                                 if (number < 1 || number > size * size)
-                                {
                                     throw new ArgumentOutOfRangeException("Invalid number! Out of range.");
-                                }
+                                
                                 move = ConvertNumberToPosition(number, size);
                                 if (gameBoard[move.Value.Item1, move.Value.Item2] == " ")
-                                {
                                     break;
-                                }
+                                
                                 else
-                                {
                                     Console.WriteLine("Cell is already occupied. Try again.");
-                                }
+                                
                             }
                             catch (Exception e)
                             {
