@@ -1,6 +1,5 @@
-using Xunit;
+using AI_TicTokToe.App;
 using FluentAssertions;
-using TicTacToe.App;
 
 namespace AI_TicTokToe.Tests
 {
@@ -137,31 +136,31 @@ namespace AI_TicTokToe.Tests
         private static bool InvokeIsWinner(string[,] board, string symbol)
         {
             var method = typeof(Program).GetMethod("IsWinner", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic);
-            return (bool)method.Invoke(null, new object[] { board, symbol });
+            return (bool)method.Invoke(null, [board, symbol]);
         }
 
         private static bool InvokeIsDraw(string[,] board)
         {
             var method = typeof(Program).GetMethod("IsDraw", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic);
-            return (bool)method.Invoke(null, new object[] { board });
+            return (bool)method.Invoke(null, [board]);
         }
 
         private static (int, int) InvokeConvertNumberToPosition(int number, int size)
         {
             var method = typeof(Program).GetMethod("ConvertNumberToPosition", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic);
-            return ((int, int))method.Invoke(null, new object[] { number, size });
+            return ((int, int))method.Invoke(null, [number, size]);
         }
 
         private static (int, int)? InvokeGetBestMove(string[,] board, string player, string opponent, int depthLimit)
         {
             var method = typeof(Program).GetMethod("GetBestMove", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic);
-            return ((ValueTuple<int, int>?)method.Invoke(null, new object[] { board, player, opponent, depthLimit }));
+            return ((ValueTuple<int, int>?)method.Invoke(null, [board, player, opponent, depthLimit]));
         }
 
         private static (int score, (int, int)? move) InvokeAlphaBeta(string[,] board, int depth, int alpha, int beta, bool isMax, string player, string opponent, int depthLimit)
         {
             var method = typeof(Program).GetMethod("AlphaBeta", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic);
-            return ((int, (int, int)?))method.Invoke(null, new object[] { board, depth, alpha, beta, isMax, player, opponent, depthLimit });
+            return ((int, (int, int)?))method.Invoke(null, [board, depth, alpha, beta, isMax, player, opponent, depthLimit]);
         }
     }
 }

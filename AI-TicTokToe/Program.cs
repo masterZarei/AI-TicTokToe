@@ -1,4 +1,4 @@
-﻿namespace TicTacToe.App
+﻿namespace AI_TicTokToe.App
 {
 
     public class Program
